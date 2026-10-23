@@ -1,5 +1,5 @@
 /* AutoDoor ver3 application integrated with AUTOSAR CP4.4 inspired CAN Driver.
- * Keeps encoder 146 counts, PWM 65%, obstacle recovery and fail-safe CAN policy.
+ * Keeps encoder 210 counts, PWM 65%, obstacle recovery and fail-safe CAN policy.
  * This is an educational 6-API demonstration, not certified AUTOSAR MCAL.
  */
 #include "S32K144.h"
@@ -25,7 +25,7 @@
 /* ----------------------- USER CALIBRATION ----------------------------- */
 /* Measured: 293 encoder x4 counts moved the output shaft about 120 deg.
  * Initial 60-deg target = round(293 * 60 / 120) = 147 counts.
- * Use 146 as requested for the first bench trial; adjust after measuring
+ * Use 210 as requested for the first bench trial; adjust after measuring
  * the final angle, including any coast/overshoot after PWM is switched off.
  * The 40:1 nominal gearbox ratio is NOT used to infer this target.
  */
@@ -33,7 +33,7 @@
 #define ENCODER_X4_CPR           (4U * ENCODER_PPR)
 #define GEAR_RATIO_NOMINAL       40U  /* Reference only, not used for endpoint */
 #define OPEN_ANGLE_DEG           60U
-#define DOOR_TRAVEL_COUNTS       146L /* Preliminary endpoint based on 293->120deg */
+#define DOOR_TRAVEL_COUNTS       210L /* Preliminary endpoint based on 293->120deg */
 #define OPEN_TARGET_CALIBRATED   0U  /* 0=approximate; change to 1 after angle verification */
 #define ENCODER_OPEN_SIGN        1L  /* initial mapping; corrected once during first OPEN */
 #define ENC_A_PIN                 3U
